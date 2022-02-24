@@ -8,8 +8,7 @@ class Ficha:
     #este atributo se define cuando definimos relaciones entre clases
     #lo que veremos más adelante en el curso
     dado = Dado(6)
-    
-    
+
     def __init__(self, color):
         self.color = color
         self.posicion = 0
@@ -18,7 +17,7 @@ class Ficha:
         #aquí se vuelve claro por qué necesitamos un dado
         pasos = self.dado.lanzar()
         self.posicion += pasos
-        print(self.posicion)
+        print('La ficha ' + str(self.color) + ' se movió a la posición ' + str(self.posicion))
     
 
 

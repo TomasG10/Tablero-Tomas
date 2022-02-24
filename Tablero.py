@@ -2,26 +2,37 @@ from Ficha import *
 
 class Tablero:
 
-    #Defina aquí los atributos de Tablero
-    jugadores = []
+
+    lista_jugadores = []
+
+    casillas = 0
+
 
     def __init__(self):
 
-        jug1 = Ficha('verde')
-        jug2 = Ficha('azul')
+        jug1 = Ficha('azul')
+        jug2 = Ficha('verde')
+        jug3 = Ficha('rodasito')
 
-        self.jugadores = [jug1,jug2]
-    
+        self.lista_jugadores = [jug1,jug2,jug3]
+        self.casillas = 18
 
-    def mover_jugadores(self):
 
-        cont = 0
-        while cont <= 16:
-            for i in self.jugadores:
-                i.avanzar()
-                if i.posicion >= 20:
-                    print(i.color)
+    def juego(self):
+
+        victoria = False
+
+        while not victoria:
+
+            for i in range(len(self.lista_jugadores)):
+                self.lista_jugadores[i].avanzar()
+                if self.lista_jugadores[i].posicion >= self.casillas:
+                    print('El jugador' + ' ' + self.lista_jugadores[i].color + ' ' + 'ganó')
+                    victoria = True
                     break
-            cont += 1
 
+#Esta es la llamada para el main en una futura clase
+tablero = Tablero()
+
+tablero.juego()
 
